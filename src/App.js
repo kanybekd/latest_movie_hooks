@@ -1,39 +1,44 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import { useEffect, useState } from "react"
-import Home from "./components/home"
-import About from "./components/about"
-import Details from "./components/details"
-import Login from "./components/login"
-import NavBar from "./components/navBar"
-import NotFound from "./components/notFound"
-import "./App.css"
+
+import { useState } from "react"
+import * as actions from './actions'
+import { Input, Button } from "reactstrap"
+import store from "./store"
+import Todo from "./todo"
 function App() {
-    const [recipeLabel, setLabel] = useState("")
-    const [loggedIn, setLoggedIn] = useState(false)
-    const fetchRecipeLabel = (label) => {
-        setLabel(label)
+    const [inputVal, setInputVal] = useState("")
+    const handleAddTodo = () => {
+        setInputVal("")
+
+        store.dispatch({
+            type: actions.addTodo,
+            data: {
+                description: inputVal
+            }
+        })
+
     }
-    const checkIfLoggedIn = (e) => {
-        setLoggedIn(e)
-    }
+    console.log(store.getState())
     return (
-
         <div className="container">
+            <div className="row mt-5">
+                <div className="col-12 col-sm-6">
+                    <Input value={inputVal} onChange={(e) => setInputVal(e.target.value)}
+                    />
 
-            <Router>
-                <NavBar loggedIn={loggedIn} checkIfLoggedIn={checkIfLoggedIn} />
-                <Routes>
-
-                    <Route path="/" element={<Home fetchRecipeLabel={fetchRecipeLabel} />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/details/:detailsRecipe" element={<Details recipeLabel={recipeLabel} />} />
-                    <Route path="/login" element={<Login checkIfLoggedIn={checkIfLoggedIn} />} />
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
-            </Router>
-
+                </div>
+                <div className="col-12 col-sm-2">
+                    <Button onClick={handleAddTodo}>Add</Button>
+                </div>
+            </div>
+            <div className="row mt-5">
+                <div className="col">
+                    <Todo />
+                </div>
+            </div>
         </div>
-
     )
 }
+
 export default App;
+
+

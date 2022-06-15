@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+// import App from './fileTraverse';
+// import App from './serializeInput';
+import App from './survey';
 // import App2 from './conditionalRenderingHooks/conditionalRendering';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';

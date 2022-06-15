@@ -3,7 +3,7 @@ import { useState } from "react"
 import * as actions from './actions'
 import { Input, Button } from "reactstrap"
 import store from "./store"
-import Todo from "./todo"
+import Todo from "../todo"
 function App() {
     const [inputVal, setInputVal] = useState("")
     const handleAddTodo = () => {
@@ -22,6 +22,7 @@ function App() {
         <div className="container">
             <div className="row mt-5">
                 <div className="col-12 col-sm-6">
+
                     <Input value={inputVal} onChange={(e) => setInputVal(e.target.value)}
                     />
 
@@ -40,5 +41,3 @@ function App() {
 }
 
 export default App;
-
-

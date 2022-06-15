@@ -1,6 +1,11 @@
 import * as actions from './actions'
 function reducer(state = [], action) {
     if (action.type === actions.addTodo) {
+        for (let i of state) {
+            if (i.description === action.data.description) {
+                return state
+            }
+        }
 
         return [...state, { id: state.length + 1, description: action.data.description, completed: false }]
     }

@@ -1,7 +1,7 @@
 import { useState } from "react"
-import store from "./store"
+import store from "./reduxTodo/store"
 import { Button } from "reactstrap"
-import * as actions from "./actions"
+import * as actions from "./reduxTodo/actions"
 const Todo = () => {
     const [state, setState] = useState(false)
     const data = store.getState()

@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { startTransition, useState } from "react"
 import { data } from "./surveyData"
-import { Button } from "reactstrap"
+import { Button, List } from "reactstrap"
 function App() {
     console.log(data)
     const [pageNumber, setPage] = useState(0)
@@ -90,3 +90,28 @@ function App() {
 }
 
 export default App;
+
+
+// react hooks
+// use state, useEffect , useContext, useREducer, useRef
+// react class components
+// five star, tci tac Toe, amazon,
+// life cylces
+// redux
+// JSON, es6, bootstrap, scss, material, reactstrap ,
+// javascript algorithms - array manipulation,s tring manipulation,  [{key:[{salary:123123},{}]},{key:[{salary:123123},{}]}]
+// listen silent
+// pangram
+// "A quick brown fox jumps over the lazy dog"
+// "a-z"
+// race car
+
+// OOP-
+// Data structres - linked List, stack, ques, trees
+
+
+
+
+
+
+
